@@ -3,10 +3,12 @@ package com.example.edin.vg2c;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -22,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
 
     Handler handler = new Handler();
     Runnable refresh;
+    private Button light_btn;
 
 
     private Button timeBtn;
@@ -32,6 +35,31 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(activity_main2);
 
         timeBtn = (Button) findViewById(R.id.time_btn);
+
+        light_btn = (Button) findViewById(R.id.light_bytn);
+
+        light_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
+                objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null){
+                            Boolean currentStatus = object.getBoolean("light");
+                            if (currentStatus){
+                                object.put("light",false);
+                            }else {
+                                object.put("light",true);
+                            }
+
+                            object.saveInBackground();
+                        }
+
+                    }
+                });
+            }
+        });
         final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
         final ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("Sensor");

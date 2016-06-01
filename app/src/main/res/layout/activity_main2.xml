@@ -77,6 +77,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/Edin" />
         <Button
+            android:id="@+id/light_bytn"
             android:layout_height="wrap_content"
             android:text="Light"
             android:layout_width="fill_parent"
