@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Current situation in greenhouse:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ilk_sira">
+        <Button
+            android:id="@+id/time_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/clock"
+            android:text="\nTime: "
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/toplomer"
+            android:text="\nTemperature: "
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ikinci_sira"
+        android:layout_below="@id/ilk_sira">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/light"
+            android:text="\nLight: "/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/drop"
+            android:text="\nHumidity: "/>
+    </LinearLayout>
+    <TextView
+        android:text="Please choose a Real-Time Action:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Heating"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Ventilator"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Light"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+    </LinearLayout>
+
+
+</LinearLayout>

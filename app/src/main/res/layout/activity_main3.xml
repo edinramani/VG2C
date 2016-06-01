@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Please choose a Real-Time Sensor:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ilk_sira">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/calisan"
+            android:drawableTop="@drawable/sensor_on"
+            android:text="Sensor 1"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/sensor_off"
+            android:text="Sensor 2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ikinci_sira"
+        android:layout_below="@id/ilk_sira">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/sensor_off"
+            android:text="Sensor 3"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/sensor_off"
+            android:text="Sensor 4"/>
+    </LinearLayout>
+    <TextView
+        android:text="Please choose a Report type:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Weekly"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+        <Button
+            android:layout_height="wrap_content"
+            android:text="Monthly"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Edin" />
+    </LinearLayout>
+</LinearLayout>
