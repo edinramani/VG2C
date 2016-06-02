@@ -21,14 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/clock"
-            android:text="\nTime: "
             />
         <Button
+            android:id="@+id/temp_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/toplomer"
-            android:text="\nTemperature: "
             android:layout_gravity="center"
             />
     </LinearLayout>
@@ -40,17 +39,19 @@
         android:id="@+id/ikinci_sira"
         android:layout_below="@id/ilk_sira">
         <Button
+            android:id="@+id/light_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/light"
-            android:text="\nLight: "/>
+            />
         <Button
+            android:id="@+id/hum_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/drop"
-            android:text="\nHumidity: "/>
+            />
     </LinearLayout>
     <TextView
         android:text="Please choose a Real-Time Action:"
@@ -65,12 +66,14 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent">
         <Button
+            android:id="@+id/heat_btn"
             android:layout_height="wrap_content"
             android:text="Heating"
             android:layout_width="fill_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/Edin" />
         <Button
+            android:id="@+id/vent_btn"
             android:layout_height="wrap_content"
             android:text="Ventilator"
             android:layout_width="fill_parent"

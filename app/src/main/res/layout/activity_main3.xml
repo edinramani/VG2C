@@ -64,18 +64,21 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent">
         <Button
+            android:id="@+id/day_btn"
             android:layout_height="wrap_content"
             android:text="Daily"
             android:layout_width="fill_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/Edin" />
         <Button
+            android:id="@+id/week_btn"
             android:layout_height="wrap_content"
             android:text="Weekly"
             android:layout_width="fill_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/Edin" />
         <Button
+            android:id="@+id/month_btn"
             android:layout_height="wrap_content"
             android:text="Monthly"
             android:layout_width="fill_parent"

@@ -1,16 +1,12 @@
 package com.example.edin.vg2c;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equalsIgnoreCase("edin") && password.getText().toString().equalsIgnoreCase("ramani")){
+                if(username.getText().toString().equalsIgnoreCase("a") && password.getText().toString().equalsIgnoreCase("a")){
                     Intent diger = new Intent(MainActivity.this, Main3Activity.class);
                     startActivity(diger);
                 }

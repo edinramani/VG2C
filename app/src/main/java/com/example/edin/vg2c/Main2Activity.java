@@ -25,9 +25,12 @@ public class Main2Activity extends AppCompatActivity {
     Handler handler = new Handler();
     Runnable refresh;
     private Button light_btn;
-
-
+    private Button vent_btn;
+    private Button heat_btn;
     private Button timeBtn;
+    private Button tempBtn;
+    private Button lightBtn;
+    private Button humBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,13 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(activity_main2);
 
         timeBtn = (Button) findViewById(R.id.time_btn);
+        tempBtn = (Button) findViewById(R.id.temp_btn);
+        lightBtn = (Button) findViewById(R.id.light_btn);
+        humBtn = (Button) findViewById(R.id.hum_btn);
 
         light_btn = (Button) findViewById(R.id.light_bytn);
+        vent_btn = (Button) findViewById(R.id.vent_btn);
+        heat_btn = (Button) findViewById(R.id.heat_btn);
 
         light_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,12 +53,13 @@ public class Main2Activity extends AppCompatActivity {
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
-                        if (e == null){
+
+                        if (e == null) {
                             Boolean currentStatus = object.getBoolean("light");
-                            if (currentStatus){
-                                object.put("light",false);
-                            }else {
-                                object.put("light",true);
+                            if (currentStatus) {
+                                object.put("light", false);
+                            } else {
+                                object.put("light", true);
                             }
 
                             object.saveInBackground();
@@ -60,6 +69,52 @@ public class Main2Activity extends AppCompatActivity {
                 });
             }
         });
+
+        vent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
+                objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+
+                        if (e == null) {
+                            Boolean currentStatus2 = object.getBoolean("ventilator");
+                            if (currentStatus2) {
+                                object.put("ventilator", false);
+                            } else {
+                                object.put("ventilator", true);
+                            }
+                            object.saveInBackground();
+                        }
+
+                    }
+                });
+            }
+        });
+        heat_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
+                objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+
+                        if (e == null) {
+                            Boolean currentStatus3 = object.getBoolean("heating");
+                            if (currentStatus3) {
+                                object.put("heating", false);
+                            } else {
+                                object.put("heating", true);
+                            }
+                            object.saveInBackground();
+                        }
+
+                    }
+                });
+            }
+        });
+
         final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
         final ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("Sensor");
@@ -73,17 +128,24 @@ public class Main2Activity extends AppCompatActivity {
                         if (e == null) {
                             int length = objects.size();
                             ParseObject currentObject = objects.get(length - 1);
-                            int sdfs = currentObject.getInt("light");
+//                            int sdfs = currentObject.getInt("light");
+                            int tempNow = currentObject.getInt("temperature");
+                            int lightNow = currentObject.getInt("light");
+                            int humNow = currentObject.getInt("humidity");
 
                             Date date = new Date();
                             String test = dateFormat.format(date);
+
                             timeBtn.setText("Time: " + test);
+                            tempBtn.setText("Temperature: " + tempNow);
+                            lightBtn.setText("Light: " + lightNow);
+                            humBtn.setText("Humidity: " + humNow);
                         } else {
                             Toast.makeText(Main2Activity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-                handler.postDelayed(refresh, 5000);
+                handler.postDelayed(refresh, 3000);
             }
         };
         handler.post(refresh);

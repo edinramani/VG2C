@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by Edin on 1.6.2016.
  */
-public class ChartActivity extends AppCompatActivity {
+public class Chart2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +34,16 @@ public class ChartActivity extends AppCompatActivity {
                 if (e == null) {
                     LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                             new DataPoint(0, objects.get(objects.size() - 1).getInt("light")),
-                            new DataPoint(1, objects.get(objects.size() - 2).getInt("light")),
-                            new DataPoint(2, objects.get(objects.size() - 3).getInt("light")),
-                            new DataPoint(3, objects.get(objects.size() - 4).getInt("light")),
-                            new DataPoint(4, objects.get(objects.size() - 5).getInt("light")),
-                            new DataPoint(5, objects.get(objects.size() - 6).getInt("light")),
+                            new DataPoint(1, objects.get(objects.size() - 3).getInt("light")),
+                            new DataPoint(2, objects.get(objects.size() - 5).getInt("light")),
+                            new DataPoint(3, objects.get(objects.size() - 7).getInt("light")),
+                            new DataPoint(4, objects.get(objects.size() - 9).getInt("light")),
+                            new DataPoint(5, objects.get(objects.size() - 11).getInt("light")),
                     });
                     graphView.addSeries(series);
 
                 } else {
-                    Toast.makeText(ChartActivity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(Chart2Activity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
                 }
             }
         });
