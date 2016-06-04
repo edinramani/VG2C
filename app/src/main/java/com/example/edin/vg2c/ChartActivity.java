@@ -39,6 +39,13 @@ public class ChartActivity extends AppCompatActivity {
                             new DataPoint(3, objects.get(objects.size() - 4).getInt("light")),
                             new DataPoint(4, objects.get(objects.size() - 5).getInt("light")),
                             new DataPoint(5, objects.get(objects.size() - 6).getInt("light")),
+
+                            new DataPoint(0, objects.get(objects.size() - 1).getInt("light")),
+                            new DataPoint(1, objects.get(objects.size() - 5).getInt("light")),
+                            new DataPoint(2, objects.get(objects.size() - 10).getInt("light")),
+                            new DataPoint(3, objects.get(objects.size() - 15).getInt("light")),
+                            new DataPoint(4, objects.get(objects.size() - 20).getInt("light")),
+                            new DataPoint(5, objects.get(objects.size() - 25).getInt("light")),
                     });
                     graphView.addSeries(series);
 

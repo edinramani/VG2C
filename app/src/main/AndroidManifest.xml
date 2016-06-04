@@ -22,9 +22,9 @@
         </activity>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".ChartActivity" />
-        <activity android:name=".Chart2Activity"/>
-        <activity android:name=".Chart3Activity"/>
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity" />
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".Chart2Activity"/>
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".Chart3Activity"/>
     </application>
 
 </manifest>

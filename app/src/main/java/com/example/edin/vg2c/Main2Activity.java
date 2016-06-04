@@ -118,7 +118,7 @@ public class Main2Activity extends AppCompatActivity {
         final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
         final ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("Sensor");
-
+        objectParseQuery.setLimit(1000);
         refresh = new Runnable() {
             @Override
             public void run() {
@@ -127,6 +127,7 @@ public class Main2Activity extends AppCompatActivity {
                     public void done(List<ParseObject> objects, ParseException e) {
                         if (e == null) {
                             int length = objects.size();
+//                            Toast.makeText(Main2Activity.this, "length: " +objects.size(), Toast.LENGTH_SHORT).show();
                             ParseObject currentObject = objects.get(length - 1);
 //                            int sdfs = currentObject.getInt("light");
                             int tempNow = currentObject.getInt("temperature");
