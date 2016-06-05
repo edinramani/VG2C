@@ -57,4 +57,13 @@
         android:layout_marginTop="10dp"
         android:gravity="center" />
 
+    <TextView
+        android:text="Enter your Username and Password:"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp" />
 </LinearLayout>

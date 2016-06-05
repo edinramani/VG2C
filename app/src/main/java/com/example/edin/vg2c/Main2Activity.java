@@ -53,18 +53,17 @@ public class Main2Activity extends AppCompatActivity {
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
-
                         if (e == null) {
                             Boolean currentStatus = object.getBoolean("light");
                             if (currentStatus) {
                                 object.put("light", false);
+                                light_btn.setText("Light ON");
                             } else {
                                 object.put("light", true);
+                                light_btn.setText("Light OFF");
                             }
-
                             object.saveInBackground();
                         }
-
                     }
                 });
             }
@@ -77,17 +76,17 @@ public class Main2Activity extends AppCompatActivity {
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
-
                         if (e == null) {
-                            Boolean currentStatus2 = object.getBoolean("ventilator");
+                            Boolean currentStatus2 = object.getBoolean("heating");
                             if (currentStatus2) {
-                                object.put("ventilator", false);
+                                object.put("heating", false);
+                                vent_btn.setText("Venti ON");
                             } else {
-                                object.put("ventilator", true);
+                                object.put("heating", true);
+                                vent_btn.setText("Venti OFF");
                             }
                             object.saveInBackground();
                         }
-
                     }
                 });
             }
@@ -99,17 +98,17 @@ public class Main2Activity extends AppCompatActivity {
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
-
                         if (e == null) {
-                            Boolean currentStatus3 = object.getBoolean("heating");
+                            Boolean currentStatus3 = object.getBoolean("ventilator");
                             if (currentStatus3) {
-                                object.put("heating", false);
+                                object.put("ventilator", false);
+                                heat_btn.setText("Heating ON");
                             } else {
-                                object.put("heating", true);
+                                object.put("ventilator", true);
+                                heat_btn.setText("Heating OFF");
                             }
                             object.saveInBackground();
                         }
-
                     }
                 });
             }
@@ -137,10 +136,10 @@ public class Main2Activity extends AppCompatActivity {
                             Date date = new Date();
                             String test = dateFormat.format(date);
 
-                            timeBtn.setText("Time: " + test);
-                            tempBtn.setText("Temperature: " + tempNow);
-                            lightBtn.setText("Light: " + lightNow);
-                            humBtn.setText("Humidity: " + humNow);
+                            timeBtn.setText("Time: " + test + " AM");
+                            tempBtn.setText("Temperature: " + tempNow + " C");
+                            lightBtn.setText("Light: " + lightNow + " lx");
+                            humBtn.setText("Humidity: " + humNow + " %");
                         } else {
                             Toast.makeText(Main2Activity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
                         }
