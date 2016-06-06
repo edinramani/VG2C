@@ -49,6 +49,7 @@ public class Main2Activity extends AppCompatActivity {
         light_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
@@ -72,17 +73,17 @@ public class Main2Activity extends AppCompatActivity {
         vent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
-                objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
+                ParseQuery<ParseObject> objectParseQuery2 = ParseQuery.getQuery("SensorStatus2");
+                objectParseQuery2.getInBackground("ZWTg50HZEt", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
                         if (e == null) {
-                            Boolean currentStatus2 = object.getBoolean("heating");
+                            Boolean currentStatus2 = object.getBoolean("ventilator");
                             if (currentStatus2) {
-                                object.put("heating", false);
+                                object.put("ventilator", false);
                                 vent_btn.setText("Venti ON");
                             } else {
-                                object.put("heating", true);
+                                object.put("ventilator", true);
                                 vent_btn.setText("Venti OFF");
                             }
                             object.saveInBackground();
@@ -94,17 +95,17 @@ public class Main2Activity extends AppCompatActivity {
         heat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
-                objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
+                ParseQuery<ParseObject> objectParseQuery3 = ParseQuery.getQuery("SensorStatus3");
+                objectParseQuery3.getInBackground("G2Srvdwfzz", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
                         if (e == null) {
-                            Boolean currentStatus3 = object.getBoolean("ventilator");
+                            Boolean currentStatus3 = object.getBoolean("heating");
                             if (currentStatus3) {
-                                object.put("ventilator", false);
+                                object.put("heating", false);
                                 heat_btn.setText("Heating ON");
                             } else {
-                                object.put("ventilator", true);
+                                object.put("heating", true);
                                 heat_btn.setText("Heating OFF");
                             }
                             object.saveInBackground();
@@ -116,12 +117,12 @@ public class Main2Activity extends AppCompatActivity {
 
         final DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
-        final ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("Sensor");
-        objectParseQuery.setLimit(1000);
+        final ParseQuery<ParseObject> objectParseQuery4 = ParseQuery.getQuery("Sensor");
+        objectParseQuery4.setLimit(1000);
         refresh = new Runnable() {
             @Override
             public void run() {
-                objectParseQuery.findInBackground(new FindCallback<ParseObject>() {
+                objectParseQuery4.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
                         if (e == null) {

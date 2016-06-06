@@ -33,19 +33,15 @@ public class ChartActivity extends AppCompatActivity {
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
                     LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                            new DataPoint(0, objects.get(objects.size() - 1).getInt("light")),
-                            new DataPoint(1, objects.get(objects.size() - 2).getInt("light")),
-                            new DataPoint(2, objects.get(objects.size() - 3).getInt("light")),
-                            new DataPoint(3, objects.get(objects.size() - 4).getInt("light")),
-                            new DataPoint(4, objects.get(objects.size() - 5).getInt("light")),
-                            new DataPoint(5, objects.get(objects.size() - 6).getInt("light")),
-
-                            new DataPoint(0, objects.get(objects.size() - 1).getInt("light")),
-                            new DataPoint(1, objects.get(objects.size() - 5).getInt("light")),
-                            new DataPoint(2, objects.get(objects.size() - 10).getInt("light")),
-                            new DataPoint(3, objects.get(objects.size() - 15).getInt("light")),
-                            new DataPoint(4, objects.get(objects.size() - 20).getInt("light")),
-                            new DataPoint(5, objects.get(objects.size() - 25).getInt("light")),
+                            new DataPoint(0, objects.get(objects.size() - 2).getInt("temperature")),
+                            new DataPoint(1, objects.get(objects.size() - 4).getInt("temperature")),
+                            new DataPoint(2, objects.get(objects.size() - 6).getInt("temperature")),
+                            new DataPoint(3, objects.get(objects.size() - 8).getInt("temperature")),
+                            new DataPoint(4, objects.get(objects.size() - 10).getInt("temperature")),
+                            new DataPoint(5, objects.get(objects.size() - 12).getInt("temperature")),
+                            new DataPoint(6, objects.get(objects.size() - 14).getInt("temperature")),
+                            new DataPoint(7, objects.get(objects.size() - 16).getInt("temperature")),
+                            new DataPoint(8, objects.get(objects.size() - 18).getInt("temperature")),
                     });
                     graphView.addSeries(series);
 
