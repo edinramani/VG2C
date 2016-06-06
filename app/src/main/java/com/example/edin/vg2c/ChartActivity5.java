@@ -19,13 +19,13 @@ import java.util.List;
 /**
  * Created by Edin on 1.6.2016.
  */
-public class ChartActivity extends AppCompatActivity {
+public class ChartActivity5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.chart);
+        setContentView(R.layout.chart5);
         final GraphView graphView = (GraphView) findViewById(R.id.chart_view);
 
         ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("Sensor");
@@ -52,8 +52,23 @@ public class ChartActivity extends AppCompatActivity {
                     graphView.addSeries(series);
                     series.setColor(Color.RED);
                     series.setThickness(8);
+
+                    LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                            new DataPoint(0, objects.get(objects.size() - 2).getInt("humidity")),
+                            new DataPoint(1, objects.get(objects.size() - 4).getInt("humidity")),
+                            new DataPoint(2, objects.get(objects.size() - 6).getInt("humidity")),
+                            new DataPoint(3, objects.get(objects.size() - 8).getInt("humidity")),
+                            new DataPoint(4, objects.get(objects.size() - 10).getInt("humidity")),
+                            new DataPoint(5, objects.get(objects.size() - 12).getInt("humidity")),
+                            new DataPoint(6, objects.get(objects.size() - 14).getInt("humidity")),
+                            new DataPoint(7, objects.get(objects.size() - 16).getInt("humidity")),
+                            new DataPoint(8, objects.get(objects.size() - 18).getInt("humidity")),
+                    });
+                    graphView.addSeries(series2);
+                    series2.setColor(Color.BLUE);
+                    series2.setThickness(8);
                 } else {
-                    Toast.makeText(ChartActivity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(ChartActivity5.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
                 }
             }
         });

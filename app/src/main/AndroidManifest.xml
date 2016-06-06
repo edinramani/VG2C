@@ -25,6 +25,9 @@
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity" />
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".Chart2Activity"/>
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".Chart3Activity"/>
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity4"/>
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity5"/>
+        <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity6"/>
     </application>
 
 </manifest>

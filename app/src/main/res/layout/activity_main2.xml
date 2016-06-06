@@ -71,22 +71,39 @@
             android:text="Heating"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@color/colorPrimary" />
         <Button
             android:id="@+id/vent_btn"
             android:layout_height="wrap_content"
             android:text="Ventilator"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@color/colorPrimary" />
         <Button
             android:id="@+id/light_bytn"
             android:layout_height="wrap_content"
             android:text="Light"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@color/colorPrimary" />
     </LinearLayout>
-
-
+    <TextView
+        android:text="Do you want to activate Jarvis?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+        android:id="@+id/LinearLayout04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Switch
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/auto_bytn"
+            android:layout_gravity="right" />
+    </LinearLayout>
 </LinearLayout>

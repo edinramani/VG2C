@@ -1,10 +1,13 @@
 package com.example.edin.vg2c;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -31,25 +34,69 @@ public class Main2Activity extends AppCompatActivity {
     private Button tempBtn;
     private Button lightBtn;
     private Button humBtn;
+    private Switch autoBtn;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_main2);
 
+        autoBtn = (Switch) findViewById(R.id.auto_bytn);
         timeBtn = (Button) findViewById(R.id.time_btn);
         tempBtn = (Button) findViewById(R.id.temp_btn);
         lightBtn = (Button) findViewById(R.id.light_btn);
         humBtn = (Button) findViewById(R.id.hum_btn);
-
         light_btn = (Button) findViewById(R.id.light_bytn);
         vent_btn = (Button) findViewById(R.id.vent_btn);
         heat_btn = (Button) findViewById(R.id.heat_btn);
 
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        int restoredText = prefs.getInt("switch_btn_statuc", 0);
+
+        if(restoredText == 0){
+            // yazmak icin
+            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+            editor.putInt("switch_btn_statuc",1);
+            editor.apply();
+        }
+
+        if (restoredText == 1){
+            autoBtn.setChecked(false);
+            light_btn.setEnabled(true);
+            vent_btn.setEnabled(true);
+            heat_btn.setEnabled(true);
+        }else if(restoredText == 2){
+            autoBtn.setChecked(true);
+            light_btn.setEnabled(false);
+            vent_btn.setEnabled(false);
+            heat_btn.setEnabled(false);
+        }
+
+        autoBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                if (isChecked) {
+                    light_btn.setEnabled(false);
+                    vent_btn.setEnabled(false);
+                    heat_btn.setEnabled(false);
+                    editor.putInt("switch_btn_statuc", 2);
+                    editor.apply();
+                } else {
+                    light_btn.setEnabled(true);
+                    vent_btn.setEnabled(true);
+                    heat_btn.setEnabled(true);
+                    editor.putInt("switch_btn_statuc", 1);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(restoredText == 1){
         light_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 ParseQuery<ParseObject> objectParseQuery = ParseQuery.getQuery("SensorStatus");
                 objectParseQuery.getInBackground("D806BMvnzV", new GetCallback<ParseObject>() {
                     @Override
@@ -68,7 +115,7 @@ public class Main2Activity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });}
 
         vent_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,6 +14,9 @@ public class Main3Activity extends AppCompatActivity {
     private Button dayBtn;
     private Button weekBtn;
     private Button monthBtn;
+    private Button heatBtn;
+    private Button humBtn;
+    private Button ligBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -24,6 +27,9 @@ public class Main3Activity extends AppCompatActivity {
         dayBtn = (Button) findViewById(R.id.day_btn);
         weekBtn = (Button) findViewById(R.id.week_btn);
         monthBtn = (Button) findViewById(R.id.month_btn);
+        heatBtn = (Button) findViewById(R.id.day_btn2);
+        humBtn = (Button) findViewById(R.id.week_btn2);
+        ligBtn = (Button) findViewById(R.id.month_btn2);
 
         calisan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +60,30 @@ public class Main3Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent rapor3 = new Intent(Main3Activity.this, Chart3Activity.class);
                 startActivity(rapor3);
+            }
+        });
+
+        heatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rapor4 = new Intent(Main3Activity.this, ChartActivity4.class);
+                startActivity(rapor4);
+            }
+        });
+
+        humBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rapor5 = new Intent(Main3Activity.this, ChartActivity5.class);
+                startActivity(rapor5);
+            }
+        });
+
+        ligBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rapor6 = new Intent(Main3Activity.this, ChartActivity6.class);
+                startActivity(rapor6);
             }
         });
     }

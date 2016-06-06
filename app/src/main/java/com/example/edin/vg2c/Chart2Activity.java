@@ -1,5 +1,6 @@
 package com.example.edin.vg2c;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -44,7 +45,8 @@ public class Chart2Activity extends AppCompatActivity {
                             new DataPoint(8, objects.get(objects.size() - 18).getInt("humidity")),
                     });
                     graphView.addSeries(series);
-
+                    series.setColor(Color.BLUE);
+                    series.setThickness(8);
                 } else {
                     Toast.makeText(Chart2Activity.this, "Hata mesaji" + e, Toast.LENGTH_LONG).show();
                 }

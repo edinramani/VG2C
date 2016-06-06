@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void done(ParseUser user, com.parse.ParseException e) {
 //            }
+//
 //            public void done(ParseUser user, ParseException e) {
 //                if (user != null) {
 //                    Intent diger = new Intent(MainActivity.this, Main3Activity.class);
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

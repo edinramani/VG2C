@@ -52,11 +52,11 @@
             android:text="Sensor 4"/>
     </LinearLayout>
     <TextView
-        android:text="Please choose a Report type:"
+        android:text="Please choose a Real-Time Report type:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:layout_gravity="center_horizontal"
         />
     <LinearLayout
@@ -69,20 +69,54 @@
             android:text="Heat"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@android:color/holo_red_light" />
         <Button
             android:id="@+id/week_btn"
             android:layout_height="wrap_content"
             android:text="Humidity"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@android:color/holo_green_light" />
         <Button
             android:id="@+id/month_btn"
             android:layout_height="wrap_content"
             android:text="Light"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Edin" />
+            android:backgroundTint="@android:color/holo_orange_light" />
+    </LinearLayout>
+    <TextView
+        android:text="Please choose an Interval Report type:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:id="@+id/LinearLayout03"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+        <Button
+            android:id="@+id/day_btn2"
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_blue_light" />
+        <Button
+            android:id="@+id/week_btn2"
+            android:layout_height="wrap_content"
+            android:text="Weekly"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_blue_light" />
+        <Button
+            android:id="@+id/month_btn2"
+            android:layout_height="wrap_content"
+            android:text="Monthly"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_blue_light" />
     </LinearLayout>
 </LinearLayout>
