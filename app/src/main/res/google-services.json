@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "560205571534",
+    "project_id": "vg2c-79069"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560205571534:android:ae2b99646dad5c1b",
+        "android_client_info": {
+          "package_name": "com.example.edin.vg2c"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvAKdd5u7CQ87_-SwkOjqMEwgEEphYdMM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

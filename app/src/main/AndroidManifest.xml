@@ -3,11 +3,18 @@
     package="com.example.edin.vg2c">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:protectionLevel="signature"
+        android:name="com.example.edin.vg2c.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.example.edin.vg2c.permission.C2D_MESSAGE" />
 
     <application
-        android:name=".ApplicationContext"
+        android:name=".ParsePushApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity" />
@@ -28,6 +36,43 @@
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity4"/>
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity5"/>
         <activity android:screenOrientation="landscape" android:configChanges="keyboardHidden" android:name=".ChartActivity6"/>
-    </application>
 
+        <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.example.edin.vg2c" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.gnirt69.gcmexample"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".GCMPushReceiverService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:name=".GCMRegistrationIntentService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+
+    </application>
 </manifest>
